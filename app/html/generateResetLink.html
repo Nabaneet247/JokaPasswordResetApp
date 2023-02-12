@@ -1,0 +1,44 @@
+<style>
+    #intro {
+        background-image: url(/resources/images/background.jpg);
+        height: 100vh;
+    }
+</style>
+
+
+<!-- Background image -->
+<div id="intro" class="bg-image shadow-2-strong">
+    <div class="mask d-flex align-items-center h-100" style="background-color: rgba(0, 0, 0, 0.6);">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-5 col-md-8">
+                    <form class="bg-white rounded shadow-5-strong p-4">
+                        <div class="d-flex justify-content-center mb-8">
+                            <img src="/resources/images/logo.png" class="img-fluid col-xl-6 col-md-4" />
+                        </div>
+
+                        <div ng-show="userIdInvalid" class="mb-4 note note-danger mb-4">
+                            <span>User ID is invalid. Please try again or contact ISG</span>
+                        </div>
+
+                        <div ng-hide="emailSent" class="mb-4">
+                            <input type="text" class="form-control" placeholder="User ID" ng-model="userId" />
+                        </div>
+
+                        <!-- Submit button -->
+                        <button ng-hide="emailSent" class="btn btn-primary btn-block" type="button" class="fs-6"
+                            ng-disabled="userId.length === 0 || requestProcessing" ng-click="generateResetLink()">
+                            <span ng-hide="requestProcessing">Reset Password</span>
+                            <span ng-show="requestProcessing" class="spinner-border spinner-border-sm" role="status"
+                                aria-hidden="true"></span>
+                        </button>
+
+                        <div ng-show="emailSent" class="mb-4 note note-primary mb-4 text-wrap text-break">
+                            <p>Password reset link has been sent to <b>{{emailId}}</b></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
