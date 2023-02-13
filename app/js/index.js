@@ -15,10 +15,10 @@ app.constant('configData',
 
 app.config(['$routeProvider', function ($routeProvider) {
 	$routeProvider.when('/', {
-		templateUrl: '/resources/html/generateResetLink.html',
+		templateUrl: '/passwordResetApp/resources/html/generateResetLink.html',
 		controller: 'generateResetLinkController'
 	}).when('/reset/:param', {
-		templateUrl: '/resources/html/resetPasswordPage.html',
+		templateUrl: '/passwordResetApp/resources/html/resetPasswordPage.html',
 		controller: 'resetPasswordPageController'
 	}).otherwise({
 		redirectTo: "/"
