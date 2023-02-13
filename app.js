@@ -4,7 +4,7 @@ var path = require("path");
 
 const port = process.env.PORT || 3200;
 
-app.use('/resources', express.static(__dirname + '/app'));
+app.use('/passwordResetApp/resources', express.static(__dirname + '/app'));
 app.get('/passwordResetApp', function (req, res) {
     res.sendFile(path.join(__dirname + '/app/index.html'));
 });
