@@ -6,10 +6,10 @@ app.config(function ($locationProvider) {
 
 app.constant('configData',
 	{
-		apiUrl: "http://localhost:3000/api/auth",
-		resetPageUrl: "http://localhost:3200/passwordResetApp",
-		// apiUrl: "http://ec2-43-204-240-96.ap-south-1.compute.amazonaws.com/api/auth",
-		// resetPageUrl: "http://ec2-43-204-240-96.ap-south-1.compute.amazonaws.com/passwordResetApp",
+		// apiUrl: "http://localhost:3000/api/auth",
+		// resetPageUrl: "http://localhost:3200/passwordResetApp",
+		apiUrl: "http://ec2-43-204-240-96.ap-south-1.compute.amazonaws.com/api/auth",
+		resetPageUrl: "http://ec2-43-204-240-96.ap-south-1.compute.amazonaws.com/passwordResetApp",
 	}
 );
 
