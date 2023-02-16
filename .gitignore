@@ -1,3 +1,4 @@
 .env
 ecosystem.config.js
 logs
+logs/password-reset-app-logs.txt

@@ -2,7 +2,7 @@ var express = require("express");
 var app = express();
 var path = require("path");
 
-const port = process.env.PORT || 3200;
+const port = process.env.PORT || 4200;
 
 app.use('/passwordResetApp/resources', express.static(__dirname + '/app'));
 app.get('/passwordResetApp', function (req, res) {
