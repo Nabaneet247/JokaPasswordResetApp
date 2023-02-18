@@ -1,17 +1,16 @@
+var env = {};
+
+if (window) {
+	Object.assign(env, window.__env);
+}
+
 var app = angular.module('app', ['ngRoute']);
 
 app.config(function ($locationProvider) {
 	$locationProvider.hashPrefix('');
 });
 
-app.constant('configData',
-	{
-		// apiUrl: "http://localhost:3000/api/auth",
-		// resetPageUrl: "http://localhost:3200/passwordResetApp",
-		apiUrl: "http://ec2-43-204-240-96.ap-south-1.compute.amazonaws.com/api/auth",
-		resetPageUrl: "http://ec2-43-204-240-96.ap-south-1.compute.amazonaws.com/passwordResetApp",
-	}
-);
+app.constant('configData', env);
 
 app.config(['$routeProvider', function ($routeProvider) {
 	$routeProvider.when('/', {
