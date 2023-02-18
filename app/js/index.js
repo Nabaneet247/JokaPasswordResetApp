@@ -66,6 +66,7 @@ app.controller("resetPasswordPageController", ['$scope', '$http', '$routeParams'
 	$scope.showPassword = false;
 	$scope.passwordType = 'password';
 	$scope.showPasswordTips = false;
+	$scope.passwordTipsList = [0, 0, 0, 0, 0];
 
 	$scope.checkPassword = function () {
 		$scope.passwordStrengthMessage = '';
