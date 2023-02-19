@@ -34,7 +34,7 @@ app.controller("generateResetLinkController", ['$scope', '$http', 'configData', 
 		$scope.requestProcessing = true;
 		let params = { "user_id": $scope.userId };
 		$http({
-			url: configData.apiUrl + '/resetPasswordToken',
+			url: configData.authApiUrl + '/resetPasswordToken',
 			method: "GET",
 			params: params
 		})
@@ -138,7 +138,7 @@ app.controller("resetPasswordPageController", ['$scope', '$http', '$routeParams'
 
 	let params = { "reset_password_token": $routeParams.param };
 	$http({
-		url: configData.apiUrl + '/verifyResetToken',
+		url: configData.authApiUrl + '/verifyResetToken',
 		method: "GET",
 		params: params
 	})
@@ -160,7 +160,7 @@ app.controller("resetPasswordPageController", ['$scope', '$http', '$routeParams'
 		$scope.resetError = false;
 		let data = { "reset_password_token": $routeParams.param, "password": $scope.password_text };
 		$http({
-			url: configData.apiUrl + '/resetPassword',
+			url: configData.authApiUrl + '/resetPassword',
 			method: "POST",
 			data: data
 		})
