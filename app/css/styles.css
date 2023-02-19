@@ -24,11 +24,11 @@
 }
 
 .password-strength-bar.good {
-    background-color: #82e303;
+    background-color: #28a314;
 }
 
 .password-strength-bar.strong {
-    background-color: #008004;
+    background-color: #521987;
 }
 
 .password-strength-message.very-weak {
@@ -44,11 +44,11 @@
 }
 
 .password-strength-message.good {
-    color: #82e303;
+    color: #28a314;
 }
 
 .password-strength-message.strong {
-    color: #008004;
+    color: #521987;
 }
 
 .password-tips-message ul {

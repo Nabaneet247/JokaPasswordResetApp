@@ -28,7 +28,8 @@ app.controller("generateResetLinkController", ['$scope', '$http', 'configData', 
 	$scope.userId = '';
 	$scope.requestProcessing = false;
 	$scope.generateResetLink = function () {
-		$scope.userIdInvalid = false;
+		$scope.serverError = false;
+		$scope.errorMessage = "";
 		$scope.emailSent = false;
 		$scope.requestProcessing = true;
 		let params = { "user_id": $scope.userId };
@@ -44,8 +45,12 @@ app.controller("generateResetLinkController", ['$scope', '$http', 'configData', 
 				$scope.requestProcessing = false;
 				$scope.userId = "";
 			}, function errorCallback(response) {
+				if (response.status == 400)
+					$scope.errorMessage = "User ID is invalid.";
+				else
+					$scope.errorMessage = "There was some problem with your request.";
 				console.log("Error");
-				$scope.userIdInvalid = true;
+				$scope.serverError = true;
 				$scope.requestProcessing = false;
 			});
 	};
@@ -70,7 +75,7 @@ app.controller("resetPasswordPageController", ['$scope', '$http', '$routeParams'
 
 	$scope.checkPassword = function () {
 		$scope.passwordStrengthMessage = '';
-		$scope.passwordTipsList[0] = $scope.password_text.length >= 8 ? 1 : 0;
+		$scope.passwordTipsList[0] = $scope.password_text.length >= 10 ? 1 : 0;
 		// Upper case test
 		$scope.passwordTipsList[1] = /[A-Z]/.test($scope.password_text) ? 1 : 0;
 		// Lower case test
@@ -90,19 +95,19 @@ app.controller("resetPasswordPageController", ['$scope', '$http', '$routeParams'
 
 		switch ($scope.passwordStrength) {
 			case 1:
-				$scope.passwordStrengthMessage = 'Very weak';
+				$scope.passwordStrengthMessage = "You must be joking";
 				break;
 			case 2:
-				$scope.passwordStrengthMessage = 'Weak';
+				$scope.passwordStrengthMessage = "Thoda aur effort dedo :p";
 				break;
 			case 3:
-				$scope.passwordStrengthMessage = 'Fair';
+				$scope.passwordStrengthMessage = "We'll let this pass for now.";
 				break;
 			case 4:
-				$scope.passwordStrengthMessage = 'Good';
+				$scope.passwordStrengthMessage = "Looking good!!";
 				break;
 			case 5:
-				$scope.passwordStrengthMessage = 'Strong';
+				$scope.passwordStrengthMessage = "Why so serious?";
 				break;
 		}
 	};

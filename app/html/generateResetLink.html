@@ -17,8 +17,8 @@
                             <img src="/passwordResetApp/resources/images/logo.png" class="img-fluid col-xl-6 col-md-4" />
                         </div>
 
-                        <div ng-show="userIdInvalid" class="mb-4 note note-danger mb-4">
-                            <span>User ID is invalid. Please try again or contact ISG</span>
+                        <div ng-show="serverError" class="mb-4 note note-danger mb-4">
+                            <span>{{errorMessage}}</span><p>Please try again or contact ISG</p>
                         </div>
 
                         <div ng-hide="emailSent" class="mb-4">
