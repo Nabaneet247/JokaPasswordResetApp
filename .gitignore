@@ -4,3 +4,4 @@ logs
 logs/password-reset-app-logs.txt
 app/js/env.js
 env.js
+node_modules/
